@@ -24,10 +24,12 @@ void main()
         pos=i;
         for(j=i+1;j<n;j++)
         {
-            if(bt[j]<bt[pos])
+            if(bt[j]<bt[pos]&&at[i])
                 pos=j;
-        }
- 
+		
+ 	    }
+ 	    
+ 	  
         temp=bt[i];
         bt[i]=bt[pos];
         bt[pos]=temp;
@@ -35,7 +37,12 @@ void main()
         temp=p[i];
         p[i]=p[pos];
         p[pos]=temp;
+	
+          
+
+    	
     }
+    
      ct[0]=bt[0]+at[0];
      for(i=1;i<n;i++)
      {
@@ -46,10 +53,10 @@ void main()
       tat[i]=ct[i]-at[i];
       atat=atat+tat[i];
     }
-     printf("Process  Arrival  Burst_Time Turn_Around_Time \n");
+     printf("Process    Burst_Time \n");
      for(i=0;i<n;i++)
      {
-      printf("P%d      %.1f	    %d	           %.1f	        \n",p[i],at[i],bt[i],tat[i]);
+      printf("P%d         %d	             \n",p[i],bt[i]);
      }
      atat=atat/n; 
      printf("\nAverage Turnaround Time=%f\n",atat);
